@@ -2,8 +2,9 @@
   "name": "arisu-combo",
   "title": "Arisu Combo",
   "description": "A cute and funny extension that shows your combo count and an image of Arisu dancing whenever you type.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Seth Clydesdale (https://github.com/SethClydesdale)",
+  "homepage": "https://github.com/SethClydesdale/arisu-combo",
   "license": "MIT",
   "keywords" : [
     "arisu",
