@@ -14,7 +14,7 @@ define(function (require, exports, module) {
         '<span id="arisu-combo" class="good">0</span>'+
       '</div>'+
       '<div id="cunny-zone">'+
-        '<img id="arisu" src="file://' + FileUtils.getNativeModuleDirectoryPath(_module) + '/resources/arisu-1.gif" alt="Arisu" />' +
+        '<div id="arisu" class="dance-1"></div>'+
       '</div>'+
     '</div>'
   ),
@@ -37,18 +37,18 @@ define(function (require, exports, module) {
     counter.innerText = ++combo;
     
     // Change arisu image based on combo count
-    if (combo >= 100 && !/arisu-4/.test(arisuImg.src)) {
-      arisuImg.src = 'file://' + FileUtils.getNativeModuleDirectoryPath(_module) + '/resources/arisu-4.gif';
+    if (combo >= 100 && !/dance-4/.test(arisuImg.className)) {
+      arisuImg.className = 'dance-4';
       counter.className = 'super';
     } 
     
-    else if (combo >= 50 && combo < 100 && !/arisu-3/.test(arisuImg.src)) {
-      arisuImg.src = 'file://' + FileUtils.getNativeModuleDirectoryPath(_module) + '/resources/arisu-3.gif';
+    else if (combo >= 50 && combo < 100 && !/dance-3/.test(arisuImg.className)) {
+      arisuImg.className = 'dance-3';
       counter.className = 'great';
     }
     
-    else if (combo >= 25 && combo < 50 && !/arisu-2/.test(arisuImg.src)) {
-      arisuImg.src = 'file://' + FileUtils.getNativeModuleDirectoryPath(_module) + '/resources/arisu-2.gif';
+    else if (combo >= 25 && combo < 50 && !/dance-2/.test(arisuImg.className)) {
+      arisuImg.className = 'dance-2';
     }
 
     // Clear previous timeouts to prevent Arisu from disappearing prematurely
@@ -59,7 +59,7 @@ define(function (require, exports, module) {
       Arisu.fadeOut(500, function () {
         combo = 0;
         counter.className = 'good';
-        arisuImg.src = 'file://' + FileUtils.getNativeModuleDirectoryPath(_module) + '/resources/arisu-1.gif';
+        arisuImg.className = 'dance-1';
       });
     }, 3000);
     

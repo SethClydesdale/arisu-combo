@@ -38,7 +38,16 @@
 
 #arisu {
   height:150px;
+  width:150px;
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
 }
+
+#arisu.dance-1 { background-image:url(arisu-1.gif); }
+#arisu.dance-2 { background-image:url(arisu-2.gif); }
+#arisu.dance-3 { background-image:url(arisu-3.gif); }
+#arisu.dance-4 { background-image:url(arisu-4.gif); }
 
 #combo-zone {
   text-align:center;
