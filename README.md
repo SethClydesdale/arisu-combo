@@ -28,7 +28,7 @@ https://brackets.io/
 
 1. [Download](https://github.com/SethClydesdale/arisu-combo/archive/refs/heads/main.zip) or clone this repo locally.
 2. Unzip Arisu Combo and open Brackets.
-3. Click "Help" in the title bar and then "Show Extensions Folder" from the drop down.
+3. Click "Help" (NOTE: this is under "Debug" in Phoenix Code) in the title bar and then "Show Extensions Folder" from the drop down.
 4. Open the "user" folder and drop the arisu-combo folder into the "user" folder.
 5. Click "debug" in the title bar and then "Reload With Extensions" form the drop down.
 6. Enjoy cute and funny while you code.
