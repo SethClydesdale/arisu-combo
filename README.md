@@ -19,6 +19,8 @@ https://phcode.dev/
 3. Install "Arisu Combo" and reload the editor if needed.
 4. Enjoy cute and funny while you code.
 
+OR follow the steps below if not available on the store.
+
 
 ### Brackets
 
