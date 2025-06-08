@@ -10,6 +10,20 @@ Arisu Combo is a cute and funny extension for [Brackets](https://brackets.io/) (
 
 ## How to Install
 
+### Phoenix Code
+
+https://phcode.dev/
+
+1. Go to the extension manager.
+2. Search "Arisu Combo" under the "Available" tab.
+3. Install "Arisu Combo" and reload the editor if needed.
+4. Enjoy cute and funny while you code.
+
+
+### Brackets
+
+https://brackets.io/
+
 1. [Download](https://github.com/SethClydesdale/arisu-combo/archive/refs/heads/main.zip) or clone this repo locally.
 2. Unzip Arisu Combo and open Brackets.
 3. Click "Help" in the title bar and then "Show Extensions Folder" from the drop down.
