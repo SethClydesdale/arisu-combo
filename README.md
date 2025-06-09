@@ -5,7 +5,7 @@ Arisu Combo is a cute and funny extension for [Brackets](https://brackets.io/) (
 
 ## Demo
 
-[![Demo](resources/demo.gif)](resources/demo.gif)
+[![Demo](demo/demo.gif)](demo/demo.gif)
 
 
 ## How to Install

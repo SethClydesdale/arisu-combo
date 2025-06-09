@@ -2,8 +2,7 @@ define(function (require, exports, module) {
   'use strict';
 
   // Brackets modules
-  var FileUtils = brackets.getModule('file/FileUtils'),
-      ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
+  var ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
       EditorManager = brackets.getModule('editor/EditorManager'),
       _module = module;
 
@@ -11,7 +10,8 @@ define(function (require, exports, module) {
   var Arisu = $(
     '<div id="arisu-code">'+
       '<div id="combo-zone">'+
-        '<span id="arisu-combo" class="good">0</span>'+
+        '<div id="arisu-combo" class="good">0</div>'+
+        '<div id="combo-bar"><div id="combo-bar-inner"></div></div>'+
       '</div>'+
       '<div id="cunny-zone">'+
         '<div id="arisu" class="dance-1"></div>'+
@@ -20,13 +20,15 @@ define(function (require, exports, module) {
   ),
       combo = 0,
       counter = null,
-      arisuImg = null;
+      arisuImg = null,
+      comboBar = null;
 
   // Add Arisu to the editor
   $(document).ready(function() {
     $('body').append(Arisu);
     counter = document.getElementById('arisu-combo');
     arisuImg = document.getElementById('arisu');
+    comboBar = document.getElementById('combo-bar');
   });
 
   // Show Arisu when typing and hide her after inactivity
@@ -35,6 +37,7 @@ define(function (require, exports, module) {
     
     // Update combo count
     counter.innerText = ++combo;
+    comboBar.innerHTML = '<div id="combo-bar-inner"></div>';
     
     // Change arisu image based on combo count
     if (combo >= 100 && !/dance-4/.test(arisuImg.className)) {
@@ -61,9 +64,9 @@ define(function (require, exports, module) {
         counter.className = 'good';
         arisuImg.className = 'dance-1';
       });
-    }, 3000);
+    }, 5000);
     
-    Arisu.data("hideTimeout", hideTimeout);
+    Arisu.data('hideTimeout', hideTimeout);
   }
 
   // Function for binding our cute and funny event to the editor
@@ -71,11 +74,22 @@ define(function (require, exports, module) {
     var editor = EditorManager.getCurrentFullEditor();
     if (!editor) return;
     
-    var editorElement = $(editor.getRootElement());
+    var editorElement = $(editor.getRootElement()),
+        excludedKeys = [16, 17, 18, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 80, 86, 91, 93, 145, 173, 174, 175, 176, 177, 179, 183];
 
-    // Remove any previous listener to avoid duplicates.
-    editorElement.off("keyup.arisuCode").on("keyup.arisuCode", function () {
-      showCunny();
+    // Listen for key presses
+    editorElement.off('keydown.arisuCode').on('keydown.arisuCode', function (e) {console.log(e.keyCode, e);
+      // increase count/show arisu only when keys insert content into the editor or make a change to it's content
+      if (!excludedKeys.includes(e.keyCode)) {
+        showCunny();
+      }
+    });
+    
+    // Listen for commands that alter content
+    editorElement.off('keyup.arisuCode').on('keyup.arisuCode', function (e) {
+      if (e.ctrlKey && /68|86|88|89|90/.test(e.keyCode)) {
+        showCunny();
+      }
     });
   }
 

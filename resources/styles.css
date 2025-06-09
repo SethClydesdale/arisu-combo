@@ -1,3 +1,8 @@
+@keyframes countDown {
+  0% { width:100%; background:#39C; }
+  100% { width:0%; background:#F00; }
+}
+
 @keyframes glow {
   0% { text-shadow:0 0 3px #0F0, 0 0 3px #0F0 }
   50% { text-shadow:0 0 6px #0F0, 0 0 6px #0F0 }
@@ -5,7 +10,7 @@
 }
   
 @keyframes shift {
-  0% { transform:rotate(0deg); text-shadow:0 0 3px #FF0, 0 0 3px #FF0; }
+  0% { transform:rotate(0deg); text-shadow:0 0 3px #FF0, 0 0 3px #FF0; } 
   25% { transform:rotate(10deg); text-shadow:0 0 6px #FF0, 0 0 6px #FF0; }
   50% { transform:rotate(0deg); text-shadow:0 0 3px #FF0, 0 0 3px #FF0; }
   75% { transform:rotate(-10deg); text-shadow:0 0 6px #FF0, 0 0 6px #FF0; }
@@ -23,7 +28,7 @@
 #arisu-code {
   position:fixed;
   bottom:30px;
-  right:30px;
+  right:40px;
   z-index:1000;
   display:none;
   pointer-events:none;
@@ -52,6 +57,19 @@
 #combo-zone {
   text-align:center;
   margin-bottom:10px;
+}
+
+#combo-bar {
+  width:90%;
+  margin:0 auto;
+  margin-top:10px;
+}
+
+#combo-bar-inner {
+  height:10px;
+  width:0%;      
+  background:#39C;
+  animation:countDown 5000ms linear;
 }
 
 #arisu-combo {
