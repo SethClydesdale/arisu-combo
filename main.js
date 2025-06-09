@@ -75,20 +75,26 @@ define(function (require, exports, module) {
     if (!editor) return;
     
     var editorElement = $(editor.getRootElement()),
-        excludedKeys = [16, 17, 18, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 80, 86, 91, 93, 145, 173, 174, 175, 176, 177, 179, 183];
+        excludedKeys = [16, 17, 18, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 80, 86, 91, 93, 145, 173, 174, 175, 176, 177, 179, 183],
+        ctrlKey = false;
 
     // Listen for key presses
     editorElement.off('keydown.arisuCode').on('keydown.arisuCode', function (e) {console.log(e.keyCode, e);
       // increase count/show arisu only when keys insert content into the editor or make a change to it's content
       if (!excludedKeys.includes(e.keyCode)) {
         showCunny();
+        ctrlKey = false;
       }
+      
+      // ensures ctrl cmds are counted when keystrokes are in sequence instead of held (e.g. ctrl is released and V immediately pressed)
+      if (e.ctrlKey) ctrlKey = true;
     });
     
     // Listen for commands that alter content
     editorElement.off('keyup.arisuCode').on('keyup.arisuCode', function (e) {
-      if (e.ctrlKey && /68|86|88|89|90/.test(e.keyCode)) {
+      if ((ctrlKey || e.ctrlKey) && /68|86|88|89|90/.test(e.keyCode)) {
         showCunny();
+        ctrlKey = false;
       }
     });
   }
