@@ -25,6 +25,11 @@
   100% { transform:scale(1.0) rotate(0deg); text-shadow:0 0 3px #F00, 0 0 3px #F00; }
 }
 
+@keyframes pulseOut {
+  0% { transform:scale(1.0); opacity:1; }
+  100% { transform:scale(2.0); opacity:0; }
+}
+
 #arisu-code {
   position:fixed;
   bottom:30px;
@@ -98,3 +103,10 @@
   animation:pulse 1500ms linear infinite;
 }
 
+#arisu-combo [data-combo]:before {
+  content:attr(data-combo);
+  display:inline-block;
+  position:absolute;
+  opacity:0;
+  animation:pulseOut 300ms linear;
+}

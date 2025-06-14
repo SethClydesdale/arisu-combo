@@ -36,7 +36,8 @@ define(function (require, exports, module) {
     Arisu.stop(true, true).fadeIn(200);
     
     // Update combo count
-    counter.innerText = ++combo;
+    ++combo
+    counter.innerHTML = '<div data-combo="' + combo + '">' + combo + '</div>';
     comboBar.innerHTML = '<div id="combo-bar-inner"></div>';
     
     // Change arisu image based on combo count
@@ -79,7 +80,7 @@ define(function (require, exports, module) {
         ctrlKey = false;
 
     // Listen for key presses
-    editorElement.off('keydown.arisuCode').on('keydown.arisuCode', function (e) {console.log(e.keyCode, e);
+    editorElement.off('keydown.arisuCode').on('keydown.arisuCode', function (e) {
       // increase count/show arisu only when keys insert content into the editor or make a change to it's content
       if (!excludedKeys.includes(e.keyCode)) {
         showCunny();
